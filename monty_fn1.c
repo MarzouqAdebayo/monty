@@ -70,15 +70,12 @@ void pop_fn(void)
  */
 void swap_fn(void)
 {
-	stack_t *head = global_data.head, *holder;
+	stack_t *head = global_data.head;
+	int holder;
 
 	if (!head || !head->next)
 		handle_error("can't swap, stack too short");
-	holder = head;
-	head = global_data.head->next;
-	holder->next = head->next;
-	head->next = holder;
-	head->prev = NULL;
-	holder->prev = head;
-	global_data.head = head;
+	holder = head->n;
+	head->n = head->next->n;
+	head->next->n = holder;
 }
