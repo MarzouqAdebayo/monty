@@ -13,6 +13,9 @@ void run(void)
 		{"pint", pint_fn},
 		{"pop", pop_fn},
 		{"swap", swap_fn},
+		{"add", add_fn},
+		{"nop", nop_fn},
+		{"sub", sub_fn},
 		{NULL, NULL}};
 
 	if (!command || command[0] == '#')

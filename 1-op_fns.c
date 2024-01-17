@@ -74,7 +74,7 @@ void swap_fn(void)
 	int holder;
 
 	if (!head || !head->next)
-		handle_error("can't swap, stack too short");
+		handle_error("can't swap, stack too short\n");
 	holder = head->n;
 	head->n = head->next->n;
 	head->next->n = holder;

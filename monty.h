@@ -78,5 +78,8 @@ void pall_fn(void);
 void pint_fn(void);
 void pop_fn(void);
 void swap_fn(void);
+void add_fn(void);
+void nop_fn(void);
+void sub_fn(void);
 
 #endif
