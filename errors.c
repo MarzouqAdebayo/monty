@@ -35,18 +35,18 @@ void handle_error(const char *format, ...)
  */
 void free_stack(void)
 {
-	stack_t *head, *current = global_data.head, *next;
+	stack_t *current = global_data.head, *head;
 
 	head = current;
 
 	if (current)
 	{
-		while (current)
+		while (current->next)
 		{
-			next = current->next;
-			free(current);
-			current = next;
+			current = current->next;
+			free(head);
+			head = current;
 		}
-		free(head);
 	}
+	free(head);
 }
