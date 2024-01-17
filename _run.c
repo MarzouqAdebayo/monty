@@ -14,7 +14,8 @@ void run(void)
 		{"pop", pop_fn},
 		{NULL, NULL}};
 
-	if (!command || command[0] == '#') return;
+	if (!command || command[0] == '#')
+		return;
 	for (i = 0; instr[i].opcode; i++)
 	{
 		if (!strcmp(instr[i].opcode, command))

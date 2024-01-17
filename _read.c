@@ -27,7 +27,7 @@ void _read_fn(int fd)
 		if (line)
 			free(line);
 		free_stack();
-		exit(EXIT_SUCCESS);
+		return;
 	}
 	global_data.line = collapse_whitespace(line);
 	free(line);

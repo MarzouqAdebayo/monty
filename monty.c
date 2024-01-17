@@ -44,6 +44,8 @@ int main(int argc, char **argv)
 	while (1)
 	{
 		_read_fn(fd);
+		close(fd);
+		exit(EXIT_SUCCESS);
 	}
 
 	return (0);
