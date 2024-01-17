@@ -14,10 +14,7 @@ void run(void)
 		{"pop", pop_fn},
 		{NULL, NULL}};
 
-	if (command == NULL)
-		handle_error("no instruction provided\n");
-	else if (command[0] == '#')
-		handle_error("command starts with #\n");
+	if (!command || command[0] == '#') return;
 	for (i = 0; instr[i].opcode; i++)
 	{
 		if (!strcmp(instr[i].opcode, command))
