@@ -31,7 +31,7 @@ void sub_fn(void)
 	int sub;
 
 	if (!head || !head->next)
-		handle_error("can't add, stack too short\n");
+		handle_error("can't sub, stack too short\n");
 	sub = head->next->n - head->n;
 	head->next->n = sub;
 	global_data.head = head->next;
