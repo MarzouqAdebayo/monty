@@ -77,5 +77,6 @@ void push_fn(void);
 void pall_fn(void);
 void pint_fn(void);
 void pop_fn(void);
+void swap_fn(void);
 
 #endif

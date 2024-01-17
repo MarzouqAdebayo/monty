@@ -64,3 +64,21 @@ void pop_fn(void)
 		global_data.head->prev = NULL;
 	free(current);
 }
+
+/**
+ * swap_fn - swaps the top two values on the stack
+ */
+void swap_fn(void)
+{
+	stack_t *head = global_data.head, *holder;
+
+	if (!head || !head->next)
+		handle_error("can't swap, stack too short");
+	holder = head;
+	head = global_data.head->next;
+	holder->next = head->next;
+	head->next = holder;
+	head->prev = NULL;
+	holder->prev = head;
+	global_data.head = head;
+}
