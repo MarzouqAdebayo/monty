@@ -21,7 +21,7 @@ void run(void)
 		{"mod", mod_fn},
 		{NULL, NULL}};
 
-	if (!command || command[0] == '#')
+	if (!command || iscomment(command))
 		return;
 	for (i = 0; instr[i].opcode; i++)
 	{

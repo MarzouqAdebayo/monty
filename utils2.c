@@ -43,23 +43,25 @@ void *_realloc(void *ptr, int old_size, int new_size)
 }
 
 /**
- * isdigits - checks if a string contains only digits
+ * iscomment - checks if a line is a comment line
  * @str: string to be checked
  *
- * Return: 1 if isdigits and 0 if not digits
+ * Return: 1 if iscomment, 0 otherwise
  */
-int isdigits(const char *str)
+int iscomment(const char *str)
 {
+	int isfirst = 1;
+
 	if (!str || *str == '\0')
 		return (0);
 
-	if (*str == '-')
-		str++;
 	while (*str != '\0')
 	{
-		if (!isdigit(*str))
+		if (iswhitespace(*str))
+			continue;
+		if (*str == '#')
+			return (1);
+		else
 			return (0);
-		str++;
 	}
-	return (1);
 }

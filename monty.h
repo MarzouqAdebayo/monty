@@ -72,6 +72,7 @@ void handle_malloc_error(void);
 void *_realloc(void *ptr, int old_size, int new_size);
 void free_stack(void);
 int iswhitespace(char s);
+int iscomment(const char *str);
 int isdigits(const char *str);
 void push_fn(void);
 void pall_fn(void);
