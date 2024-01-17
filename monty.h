@@ -1,12 +1,12 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
 #include <fcntl.h>
-#include <unistd.h>
 #include <ctype.h>
 
 /**
@@ -41,6 +41,7 @@ typedef struct instruction_s
 
 /**
  * struct data_s - global data for functions to access
+ * @fd: file descriptor
  * @opcode: the opcode
  * @op_val: argument to opcode
  * @line: command line
@@ -48,9 +49,10 @@ typedef struct instruction_s
  * @head: head node of the stack
  *
  * Description: global data and the stack
-*/
+ */
 typedef struct data_s
 {
+	int fd;
 	char *opcode;
 	char *op_val;
 	char *line;
@@ -61,7 +63,7 @@ typedef struct data_s
 extern data_t global_data;
 
 void initialize_global_data(void);
-void _read_fn(int fd);
+void _read_fn(void);
 void run(void);
 ssize_t _getline(char **lineptr, int *n, int fd);
 char *collapse_whitespace(char *old);

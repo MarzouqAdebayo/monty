@@ -2,7 +2,6 @@
 
 /**
  * _read_fn - Read a line of input from standard input.
- * @fd: file descriptor
  *
  * Return: A pointer to the read line (including the newline character),
  *         or NULL on failure or end of file.
@@ -15,19 +14,20 @@
  * it returns NULL and may exit the program with an error code.
  */
 
-void _read_fn(int fd)
+void _read_fn(void)
 {
 	char *line = NULL;
 	int len = 0;
 	ssize_t bytes_read = 0;
 
-	bytes_read = _getline(&line, &len, fd);
+	bytes_read = _getline(&line, &len, global_data.fd);
 	if (bytes_read == -1)
 	{
 		if (line)
 			free(line);
 		free_stack();
-		return;
+		close(global_data.fd);
+		exit(EXIT_SUCCESS);
 	}
 	global_data.line = collapse_whitespace(line);
 	free(line);

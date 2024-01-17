@@ -9,6 +9,7 @@ void handle_malloc_error(void)
 	if (global_data.line)
 		free(global_data.line);
 	free_stack();
+	close(global_data.fd);
 	exit(EXIT_FAILURE);
 }
 
@@ -27,6 +28,7 @@ void handle_error(const char *format, ...)
 	if (global_data.line)
 		free(global_data.line);
 	free_stack();
+	close(global_data.fd);
 	exit(EXIT_FAILURE);
 }
 

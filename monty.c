@@ -23,8 +23,6 @@ void initialize_global_data(void)
  */
 int main(int argc, char **argv)
 {
-	int fd;
-
 	initialize_global_data();
 
 	if (argc != 2)
@@ -33,8 +31,8 @@ int main(int argc, char **argv)
 		free_stack();
 		exit(EXIT_FAILURE);
 	}
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
+	global_data.fd = open(argv[1], O_RDONLY);
+	if (global_data.fd == -1)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		free_stack();
@@ -42,11 +40,7 @@ int main(int argc, char **argv)
 	}
 
 	while (1)
-	{
-		_read_fn(fd);
-		close(fd);
-		exit(EXIT_SUCCESS);
-	}
+		_read_fn();
 
 	return (0);
 }
