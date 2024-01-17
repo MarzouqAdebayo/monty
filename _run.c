@@ -16,6 +16,9 @@ void run(void)
 		{"add", add_fn},
 		{"nop", nop_fn},
 		{"sub", sub_fn},
+		{"div", div_fn},
+		{"mul", mul_fn},
+		{"mod", mod_fn},
 		{NULL, NULL}};
 
 	if (!command || command[0] == '#')

@@ -81,5 +81,8 @@ void swap_fn(void);
 void add_fn(void);
 void nop_fn(void);
 void sub_fn(void);
+void div_fn(void);
+void mul_fn(void);
+void mod_fn(void);
 
 #endif
