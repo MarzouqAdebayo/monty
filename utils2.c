@@ -50,8 +50,6 @@ void *_realloc(void *ptr, int old_size, int new_size)
  */
 int iscomment(const char *str)
 {
-	int isfirst = 1;
-
 	if (!str || *str == '\0')
 		return (0);
 
@@ -64,4 +62,5 @@ int iscomment(const char *str)
 		else
 			return (0);
 	}
+	return (0);
 }
