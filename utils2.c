@@ -50,12 +50,15 @@ void *_realloc(void *ptr, int old_size, int new_size)
  */
 int isdigits(const char *str)
 {
+	if (!str || *str == '\0')
+		return (0);
+
+	if (*str == '-')
+		str++;
 	while (*str != '\0')
 	{
 		if (!isdigit(*str))
-		{
 			return (0);
-		}
 		str++;
 	}
 	return (1);
