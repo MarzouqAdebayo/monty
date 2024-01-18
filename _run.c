@@ -19,6 +19,10 @@ void run(void)
 		{"div", div_fn},
 		{"mul", mul_fn},
 		{"mod", mod_fn},
+		{"pchar", pchar_fn},
+		{"pstr", pstr_fn},
+		{"rotl", rotl_fn},
+		{"rotr", rotr_fn},
 		{NULL, NULL}};
 
 	if (!command || iscomment(command))

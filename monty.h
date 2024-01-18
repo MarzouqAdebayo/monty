@@ -85,5 +85,9 @@ void sub_fn(void);
 void div_fn(void);
 void mul_fn(void);
 void mod_fn(void);
+void pchar_fn(void);
+void pstr_fn(void);
+void rotl_fn(void);
+void rotr_fn(void);
 
 #endif
