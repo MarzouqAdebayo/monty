@@ -63,6 +63,7 @@ void rotl_fn(void)
 		return;
 	holder = global_data.head;
 	global_data.head = global_data.head->next;
+	global_data.head->prev = NULL;
 
 	while (current->next)
 		current = current->next;
@@ -84,6 +85,7 @@ void rotr_fn(void)
 	while (current->next)
 		current = current->next;
 	current->next = global_data.head;
+	current->next->prev = current;
 	current->prev->next = NULL;
 	current->prev = NULL;
 	global_data.head = current;
