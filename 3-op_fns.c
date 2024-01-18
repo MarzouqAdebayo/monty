@@ -61,15 +61,18 @@ void rotl_fn(void)
 
 	if (!current)
 		return;
-	holder = global_data.head;
-	global_data.head = global_data.head->next;
 
-	while (current->next)
-		current = current->next;
-	holder->prev = current;
-	holder->next = NULL;
-	current->next = holder;
-	global_data.head = current;
+	if (current->next)
+	{
+		holder = global_data.head;
+		global_data.head = holder->next;
+		while (current->next)
+			current = current->next;
+		holder->prev = current;
+		holder->next = NULL;
+		current->next = holder;
+		global_data.head->prev = NULL;
+	}
 }
 
 /**
