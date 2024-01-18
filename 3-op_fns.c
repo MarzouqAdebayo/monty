@@ -41,8 +41,6 @@ void pstr_fn(void)
 {
 	stack_t *current = global_data.head;
 
-	if (!current)
-		putchar('\n');
 	while (current)
 	{
 		if (current->n >= 1 && current->n <= 127)
